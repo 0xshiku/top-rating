@@ -1,10 +1,12 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"log"
 	"net/http"
 	"os"
+	"topRepos/internal/loader"
 )
 
 type application struct {
@@ -58,8 +60,18 @@ func main() {
 		Handler:  mux,
 	}
 
+	filePath := "./commits.csv"
+
+	data, err := loader.LoadCSV(filePath)
+	if err != nil {
+		fmt.Println("Error:", err)
+		return
+	}
+
+	fmt.Println(len(data))
+
 	infoLog.Printf("Starting server on %s", addr)
 
-	err := server.ListenAndServe()
+	err = server.ListenAndServe()
 	errorLog.Fatal(err)
 }
