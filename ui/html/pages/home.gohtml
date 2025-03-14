@@ -2,5 +2,20 @@
     Home
 {{end}}
 {{define "main"}}
-    <p>Hello World!</p>
+    {{if .RepoScores}}
+        <table>
+            <tr>
+                <th>Repository</th>
+                <th>Activity (Additions and Deletions)</th>
+            </tr>
+            {{range .RepoScores}}
+                <tr>
+                    <td>{{.Name}}</td>
+                    <td>{{.Score}}</td>
+                </tr>
+            {{end}}
+        </table>
+    {{else}}
+        <p>No CSV data present</p>
+    {{end}}
 {{end}}
