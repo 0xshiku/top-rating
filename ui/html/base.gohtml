@@ -1,0 +1,20 @@
+{{define "base"}}
+    <!doctype html>
+    <html lang='en'>
+    <head>
+        <meta charset='utf-8'>
+        <title>{{template "title" .}}</title>
+    </head>
+    <link rel="stylesheet" href='/static/main.css'>
+    <link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700'>
+    <body>
+    <header>
+        <h1>{{template "title" .}}</h1>
+    </header>
+    {{template "nav" .}}
+    <main>
+        {{template "main" .}}
+    </main>
+    </body>
+    </html>
+{{end}}
