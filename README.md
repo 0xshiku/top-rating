@@ -2,7 +2,7 @@
 
 This project aims to demonstrate top scoring repositories from a csv included in the project.
 
-The have an idea of the csv representation here's an example:
+To have an idea of the csv representation here's an example:
 
 | Field        | Description                                                  |
 | ------------ | ------------------------------------------------------------ |
@@ -20,7 +20,7 @@ It is assumed that the definition of activity score is the sum of additions and 
 
 I decided to create a small web boilerplate for this project. This will give an idea of how I like to organize my code and will give some structure for us to reason about later.
 
-To run the project, make sure you have docker installed and simply run:
+To run the project, make sure you have go installed and simply run:
 
 ```
 go run ./cmd/main.go
