@@ -20,10 +20,16 @@ It is assumed that the definition of activity score is the sum of additions and 
 
 I decided to create a small web boilerplate for this project. This will give an idea of how I like to organize my code and will give some structure for us to reason about later.
 
-To run the project, make sure you have go installed and simply run:
+To run the project, make sure you have go installed, and:
 
 ```
-go run ./cmd/main.go
+cd cmd
+```
+
+and then:
+
+```
+go run .
 ```
 
 There are no external dependencies, just the go standard library.
