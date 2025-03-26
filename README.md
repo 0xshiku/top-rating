@@ -34,6 +34,20 @@ go run .
 
 There are no external dependencies, just the go standard library.
 
+### Docker
+
+You can also use Docker to run this by building the image:
+
+```
+docker build -t toprating:1.0 .
+```
+
+And the run it:
+
+```
+docker run toprating:1.0
+```
+
 ## Algorithm
 
 To solve this challenge, the first step was to plan and deconstruct the problem in hand.

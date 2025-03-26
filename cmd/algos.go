@@ -8,10 +8,11 @@ import (
 )
 
 func getActivityScorePerRepo(data []models.Commit) (map[string]int, error) {
+	// Define empty hashmap to store repos and their respective score
 	dataArray := make(map[string]int)
 
+	// Iterate through data, convert values, and add them accord to a repo.
 	for _, item := range data {
-
 		additions, err := strconv.Atoi(item.Additions)
 		if err != nil {
 			return nil, fmt.Errorf("Invalid additions value: %w", err)
@@ -26,6 +27,7 @@ func getActivityScorePerRepo(data []models.Commit) (map[string]int, error) {
 		dataArray[item.Repository] += total
 	}
 
+	// Return the final result
 	return dataArray, nil
 }
 
@@ -40,6 +42,7 @@ func getTopNRepositories(repoScores map[string]int, topN int) []models.RepoScore
 	// When created it has a size of 0
 	// But capacity is the length of repoScores
 	entries := make([]entry, 0, len(repoScores))
+
 	// Iterates throught repoScores map and map it to entries
 	for repo, score := range repoScores {
 		entries = append(entries, entry{repo, score})
@@ -52,6 +55,7 @@ func getTopNRepositories(repoScores map[string]int, topN int) []models.RepoScore
 
 	// creates a slice with 0 size and capacity of the maximum we want
 	topResults := make([]models.RepoScore, 0, topN)
+
 	// Then iterate trought that maximum and append to TopResults
 	for i := 0; i < topN && i < len(entries); i++ {
 		topResults = append(topResults, models.RepoScore{
